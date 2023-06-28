@@ -1,0 +1,111 @@
+#AUTHOR NAME: Rose Mumbi
+
+#loading dataset
+HappinessFile <- read_excel("C:/Users/Rose/Documents/Prediction/HappinessFile.xlsx")
+#One-tailed Test Predicting a LOWER sample score for happiness
+
+#Step 1: The hypotheses
+#H0: μs = μP (Happiness sample mean is equal to the population mean)
+#H1: μs < μP (Happiness sample mean is lower than the population mean)
+
+#Step : Criteria for decision
+#reject the null hypothesis if the z statistic is smaller than the critical value at α =0.05.
+#α =.05
+#the critical z-score is -1.65.
+
+#Step 3: Collect data; compute sample statistics
+#define vector to calculate standard deviation
+data1 <- c(HappinessFile$Happiness)
+#calculate standard deviation
+HappinessStd <- sd(data1)
+#calculate mean
+HappinessMean <- mean(data1)
+#calculate size
+HappinessSize <- length(data1)
+sqrtSize <- sqrt(HappinessSize)
+SEM <- HappinessStd/sqrtSize
+#SEM = 0.1077
+#sample statistic
+SampleStatisticHapp <- (HappinessMean-5.43)/(SEM)
+#Z test statistic = -0.3448
+ 
+#Step 4 Decision
+#The z statistic -0.3448 is larger than the critical value which is -1.65 as a result we do
+#not reject the null hypothesis. In this case the sample mean is not significantly from the population mean.
+
+# a type 1 error may occur if I reject a null hypothesis in an instance where it is true.
+# The risk of a type 1 error in this hypothesis test is 5%.
+#If I had done a non directional (2-tailed) hypothesis testing with an alpha level α =.05 the critical value would be +/-1.960 
+# I would have still not rejected the null hypothesis since the z statistic is not extreme and lies within the range +/-1.960.
+
+
+#One-tailed Test Predicting a LOWER sample score for FreeLifeChoice 
+
+#Step 1: The hypotheses 
+#H0: μs = μP (FreeLifeChoice  sample mean is equal to the population mean)
+#H1: μs > μP (FreeLifeChoice  sample mean is larger than the population mean)
+
+#Step 2: criteria for decision
+#reject the null hypothesis if the z statistic is larger than the critical value at α =0.05.
+#α =.05
+#the critical z-score is 1.65.
+
+#Step 3: Collect data; compute sample statistics
+#define vector to calculate standard deviation
+data2 <- c(HappinessFile$FreeLifeChoice)
+#calculate standard deviation
+FreeLifeChoiceStd <- sd(data2)
+#calculate mean
+FreeLifeChoiceMean <- mean(data2)
+#calculate size
+FreeLifeChoiceSize <- length(data2)
+sqrtSize2 <- sqrt(FreeLifeChoiceSize)
+SEM2 <- FreeLifeChoiceStd/sqrtSize2
+#SEM2 = 0.0129
+#sample statistic
+SampleStatisticFreeLife <- (FreeLifeChoiceMean-0.724)/(SEM2)
+#Z test statistic = 0.5130
+
+#Step 4 Decision
+#The z statistic 0.5130 is smaller than the critical value which is 1.65 as a result we do
+#not reject the null hypothesis. In this case the sample mean is not significantly different from the population mean.
+
+# a type 1 error may occur if I reject a null hypothesis in an instance where it is true.
+# The risk of a type 1 error in this hypothesis test is 5%.
+#If I had done a non directional (2-tailed) hypothesis testing with an alpha level α =.05 the critical value would be +/-1.960 
+# I would have still not rejected the null hypothesis since the z statistic is not extreme and lies within the range +/-1.960.
+
+#Two-tailed Test Predicting a DIFFERENT sample score for Generosity.
+#Step 1: The hypotheses 
+#H0: μs = μP (Generosity  sample mean is equal to the population mean)
+#H1: μs ≠ μP (Generosity  sample mean is different from the population mean)
+
+#Step 2: criteria for decision
+#reject the null hypothesis if the z statistic is extreme in that it is larger than the upper critical value or smaller than the lower critical value at α =0.05.
+#α =.05
+#the critical z-score is +/-1.960.
+
+#Step 3: Collect data; compute sample statistics
+#define vector to calculate standard deviation
+data3 <- c(HappinessFile$Generosity)
+#calculate standard deviation
+GenerosityStd <- sd(data3)
+#calculate mean
+GenerosityMean <- mean(data3)
+#calculate size
+GenerositySize <- length(data3)
+sqrtSize3 <- sqrt(GenerositySize)
+SEM3 <- GenerosityStd/sqrtSize3
+#SEM3 = 0.0145
+#sample statistic
+SampleStatisticGenerosity <- (GenerosityMean-0.001)/(SEM3)
+#Z test statistic = 0.8213
+
+#Step 4 Decision
+#The z statistic 0.8213 is smaller than the upper critical value which is 1.960 as a result we do
+#not reject the null hypothesis. In this case the sample mean is not significantly different from the population mean.
+
+# a type 1 error may occur if I reject a null hypothesis in an instance where it is true.
+# The risk of a type 1 error in this hypothesis test is 5%.
+#If I had done a directional (lower-tailed) hypothesis test with an alpha level α =.05 the critical value would be +/-1.960 
+# I would have still not rejected the null hypothesis since the z statistic is not smaller than the critical value which would have been -1.65.
